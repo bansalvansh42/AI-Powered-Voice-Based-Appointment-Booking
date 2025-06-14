@@ -70,11 +70,14 @@ const DateTimeService = {
 
   parseRelativeDate: (dateStr) => {
     // Create dates in IST
+    if (!dateStr || typeof dateStr !== 'string') return null;
+    dateStr = dateStr.toLowerCase().trim();
+    
     const today = new Date(new Date().toLocaleString('en-US', { timeZone: 'Asia/Kolkata' }));
     const tomorrow = new Date(today);
     tomorrow.setDate(tomorrow.getDate() + 1);
     
-    dateStr = dateStr.toLowerCase().trim();
+    // dateStr = dateStr.toLowerCase().trim();
     
     // Handle relative dates (today, tomorrow)
     switch (dateStr) {
@@ -144,6 +147,7 @@ const DateTimeService = {
   },
 
   parseRelativeTime: (timeStr) => {
+    if (!timeStr || typeof timeStr !== 'string') return null;
     timeStr = timeStr.toLowerCase().trim();
     
     // Handle formats like "2PM", "2:30PM", "14:30", "14:00"
