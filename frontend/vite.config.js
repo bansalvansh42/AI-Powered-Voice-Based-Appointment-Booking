@@ -9,9 +9,9 @@ export default defineConfig({
   server: {
     proxy: {
       '/call-details': {
-        target: 'http://localhost:5000',
+        target: 'https://ai-powered-voice-based-appointment.onrender.com',
         changeOrigin: true,
-        secure: false,
+        secure: true,
       }
     }
   }
