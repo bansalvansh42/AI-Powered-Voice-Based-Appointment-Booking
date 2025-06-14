@@ -95,7 +95,7 @@ function App() {
     setLoadingResult(true);
     setError(null);
 
-    fetch("/call-details?call_id=" + callId)
+    fetch("https://ai-powered-voice-based-appointment.onrender.com/call-details?call_id=" + callId)
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
